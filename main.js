@@ -40,13 +40,8 @@ function showArtists(artist) {
   clone.querySelector('h1').textContent = artist.title;
   clone.querySelector('p').textContent = artist.date;
   clone.querySelector('article').dataset.id = artist._id;
-  clone.querySelector('article').setAttribute('id', 'dynamicID_' + artist._id);
-
   clone.querySelector('#deleteButton').addEventListener('click', el => {
-    document.querySelector('#dynamicID_' + artist._id).remove();
-
-    // delete document.querySelector('article').dataset.id;
-    // deleteArtist(el).remove();
+    deleteArtist(artist._id);
   });
 
   clone.querySelector('#editButton').addEventListener('click', editArtist);
@@ -80,3 +75,17 @@ document.querySelector('#buttonAdd').addEventListener('click', () => {
 });
 
 // ------ fake button to create extra artist
+
+// function showArtists(artist) {
+//     const template = document.querySelector('template').content;
+//     const clone = template.cloneNode(true);
+//     clone.querySelector('h1').textContent = artist.title;
+//     clone.querySelector('p').textContent = artist.date;
+//     clone.querySelector('article').dataset.id = artist._id;
+//     //   clone.querySelector('article').setAttribute('id', 'dynamicID_' + artist._id);
+//     clone.querySelector('#deleteButton').addEventListener('click', el => {
+//       // document.querySelector('#dynamicID_' + artist._id).remove();
+
+//       // delete document.querySelector('article').dataset.id;
+//       deleteArtist(artist._id);
+//     });
